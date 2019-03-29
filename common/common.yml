@@ -1,0 +1,4 @@
+---
+- hosts: cache53
+  roles:
+    - common

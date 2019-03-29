@@ -1,0 +1,10 @@
+---
+- name: copy nginx.conf
+  template:
+    src: nginx.conf.j2
+    dest: /usr/local/nginx/conf/nginx.conf
+- name: systemctl
+  copy:
+    src: nginx.service
+    dest: /usr/lib/systemd/system/nginx.service
+  tags: add_service

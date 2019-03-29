@@ -1,0 +1,14 @@
+---
+- name: copy
+  copy:
+    src: mysql-5.6.43.tar.gz 
+    dest: /usr/src/
+- name: exec shell script 
+  script: install_mysql.sh 
+- name: mysql_secure_installtion
+  script: init_mysql.sh
+- shell: mysql -p"{{passwd}}" -e "select version()"
+  register: result
+- debug:
+    var: result
+

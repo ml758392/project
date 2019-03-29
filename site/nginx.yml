@@ -1,0 +1,4 @@
+---
+- hosts: db,web51
+  roles:
+    - nginx

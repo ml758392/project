@@ -1,0 +1,5 @@
+---
+php-fpm: php-fpm-5.4.16-42.el7.x86_64.rpm 
+num1: 2048M
+num2: 2048M
+num3: 2048M

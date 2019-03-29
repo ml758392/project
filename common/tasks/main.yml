@@ -1,0 +1,4 @@
+---
+ - include: authorized_key.yml
+ - include: init.yml
+ - include: copy.yml

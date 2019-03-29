@@ -1,0 +1,4 @@
+---
+- hosts: cache54
+  roles:
+    - redis

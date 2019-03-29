@@ -1,0 +1,12 @@
+- name: upload yum configure file
+  template:
+    src: server.repo.j2
+    dest: /etc/yum.repos.d/server.repo
+- name: configure epel.repo
+  copy: 
+    src: files/epel.repo
+    dest: /etc/yum.repos.d/epel.repo
+- name: upload hosts
+  copy:
+    src: hosts
+    dest: /etc/hosts

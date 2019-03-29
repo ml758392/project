@@ -1,0 +1,7 @@
+--- 
+- hosts: cache53
+  gather_facts: no
+  remote_user: root
+  roles:
+    - install_python3
+

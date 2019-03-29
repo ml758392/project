@@ -1,0 +1,25 @@
+---
+- name: copy nginx package to remote host
+  copy:
+    src: "{{nginx_pkg}}"
+    dest: /usr/src/{{nginx_pkg}}
+  tags: cp_pkg
+- name: install_devel
+  yum: 
+    name: "{{item}}"
+    state: installed
+  with_items:
+    - openssl-devel
+    - pcre-devel
+    - gcc
+    - zlib-devel
+    - gcc-c++
+- name: install_nginx
+  script: install_nginx.sh
+- name: echo nginx_version
+  shell: ps -C nginx  
+  register: result
+  tags: test_nginx
+- debug: 
+    var: result.stdout
+  tags: test_nginx

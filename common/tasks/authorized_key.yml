@@ -1,0 +1,11 @@
+# 首次连接密码配置在/etc/ansible/group_vars/all.yml中
+- name: upload public_key
+  authorized_key:
+    user: root
+    state: present
+    key: "{{lookup('file', '/root/.ssh/id_rsa.pub')}}"
+    exclusive: yes
+    manage_dir: yes
+  tags:
+    upload public_key
+

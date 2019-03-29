@@ -1,0 +1,10 @@
+---
+- name: copy python-3.6.1rc1.tar.xz
+  copy: 
+    src: Python-3.6.1rc1.tar.xz
+    dest: /usr/local/src/
+
+- name: run install_python.sh
+  script: python_install.sh
+  ignore_errors: yes
+

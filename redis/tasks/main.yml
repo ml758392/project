@@ -1,0 +1,10 @@
+---
+- name: scp redis
+  copy: 
+    src: redis-4.0.8.tar.gz
+    dest: /usr/src/redis-4.0.8.tar.gz
+- script: install_redis.sh
+- shell: ps -C redis-server
+  register: result
+- debug:
+    var: result.stdout

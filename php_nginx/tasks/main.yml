@@ -1,0 +1,43 @@
+---
+- name: copy php_fpm
+  copy: 
+    src: php-fpm-5.4.16-42.el7.x86_64.rpm 
+    dest: /root/php-fpm-5.4.16-42.el7.x86_64.rpm 
+- name: yum php
+  yum:
+    name: "{{packages}}"
+    state: present
+  vars:
+    packages:
+    - /root/php-fpm-5.4.16-42.el7.x86_64.rpm
+    - php
+    - php-mysql
+    - php-common
+- name: copy php.ini
+  template:
+    src: php.ini.j2
+    dest: /etc/php.ini
+    backup: yes
+  notify: 
+    - restart php-fpm
+    - restart nginx
+  ignore_errors: yes
+- name: copy index.php
+  template: 
+    src: index.php.j2
+    dest: /usr/local/nginx/html/index.php
+    backup: yes
+  notify: 
+    - restart php-fpm
+
+- name: test php
+  uri: 
+    url: http://127.0.0.1/index.php
+    return_content: yes
+  register: result
+  tags: test_php
+- debug:
+    var: result
+  tags: test_php
+
+

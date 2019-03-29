@@ -1,0 +1,8 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+192.168.142.50 mysql50 
+192.168.142.51 mysql51 web51
+192.168.142.52 mysql52 
+192.168.142.53 mysql53 cache53
+192.168.142.54 mysql54
+192,168.142.10 lenovo
